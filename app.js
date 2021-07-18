@@ -16,6 +16,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 const app = express();
 
 app.set('view engine', 'pug');
@@ -94,9 +95,10 @@ app.use('/api', limiter);
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  console.log(req.cookies);
   next();
 });
+
+app.use(compression());
 
 app.use('/', viewRouter);
 app.use('/api/v1/tours', tourRouter);

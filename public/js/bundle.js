@@ -8725,7 +8725,7 @@ var bookTour = /*#__PURE__*/function () {
 
           case 4:
             session = _context.sent;
-            console.log(session); // 2> Create checkout form + charges
+           // 2> Create checkout form + charges
 
             _context.next = 8;
             return stripe.redirectToCheckout({
