@@ -41,10 +41,6 @@ exports.getTour = catchAsync(async (req, res, next) => {
 exports.getLoginForm = catchAsync((req, res, next) => {
   res
     .status(200)
-    .set(
-      'Content-Security-Policy',
-      "connect-src 'self' https://cdnjs.cloudflare.com"
-    )
     .render('login', {
       title: 'Login into your Account',
     });
@@ -53,10 +49,6 @@ exports.getLoginForm = catchAsync((req, res, next) => {
 exports.getSignupForm = catchAsync(async (req, res, next) => {
   res
     .status(200)
-    .set(
-      'Content-Security-Policy',
-      "connect-src 'self' https://cdnjs.cloudflare.com"
-    )
     .render('signup', {
       title: 'Sign Up your Account',
     });
