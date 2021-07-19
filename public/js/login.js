@@ -11,16 +11,17 @@ export const login = async (email, password) => {
         email,
         password,
       },
+      headers: { 'Content-Type': 'application/json' },
     });
 
-    if (res.data.status === 'success') {
+    if (res.response.data.status === 'success') {
       showAlerts('success', 'Logged In succesfully');
       window.setTimeout(() => {
         location.assign('/');
       }, 1000);
     }
   } catch (err) {
-    console.log("Hello")
+    console.log('Hello');
     showAlerts('error', err.response.data.message);
   }
 };

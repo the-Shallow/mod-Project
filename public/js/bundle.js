@@ -8556,13 +8556,16 @@ var login = /*#__PURE__*/function () {
               data: {
                 email: email,
                 password: password
+              },
+              headers: {
+                'Content-Type': 'application/json'
               }
             });
 
           case 3:
             res = _context.sent;
 
-            if (res.data.status === 'success') {
+            if (res.response.data.status === 'success') {
               (0, _alerts.showAlerts)('success', 'Logged In succesfully');
               window.setTimeout(function () {
                 location.assign('/');
@@ -8575,7 +8578,7 @@ var login = /*#__PURE__*/function () {
           case 7:
             _context.prev = 7;
             _context.t0 = _context["catch"](0);
-            console.log("Hello");
+            console.log('Hello');
             (0, _alerts.showAlerts)('error', _context.t0.response.data.message);
 
           case 11:

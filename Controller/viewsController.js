@@ -38,9 +38,13 @@ exports.getTour = catchAsync(async (req, res, next) => {
     });
 });
 
-exports.getLoginForm = catchAsync( async (req, res, next) => {
+exports.getLoginForm = catchAsync(async (req, res, next) => {
   res
     .status(200)
+    .set(
+      'Content-Security-Policy',
+      "connect-src 'self' https://cdnjs.cloudflare.com"
+    )
     .render('login', {
       title: 'Login into your Account',
     });
@@ -58,7 +62,7 @@ exports.getSignupForm = catchAsync(async (req, res, next) => {
     });
 });
 
-exports.getAccount = catchAsync( async (req, res, next) => {
+exports.getAccount = catchAsync(async (req, res, next) => {
   res.status(200).render('account', {
     title: 'Account Page',
   });
