@@ -22,7 +22,10 @@ const createSendToken = (user, statusCode, res) => {
     // secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
   };
 
-  // if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
+  if (process.env.NODE_ENV == 'production') {
+    cookieOptions.secure = true;
+    console.log("Cookies sent over https");
+  } 
 
   res.cookie('jwt', token, cookieOptions);
 
