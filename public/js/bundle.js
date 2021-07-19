@@ -8543,7 +8543,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var login = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(email, password) {
-    var res;
+    var _res;
+
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -8560,30 +8561,27 @@ var login = /*#__PURE__*/function () {
             });
 
           case 3:
-            res = _context.sent;
-
-            if (res.data.status === 'success') {
-              (0, _alerts.showAlerts)('success', 'Logged In succesfully');
-              window.setTimeout(function () {
-                location.assign('/');
-              }, 1000);
-            }
-
-            _context.next = 11;
+            _res = _context.sent;
+            (0, _alerts.showAlerts)('success', 'Logged In succesfully');
+            window.setTimeout(function () {
+              location.assign('/');
+            }, 1000);
+            _context.next = 13;
             break;
 
-          case 7:
-            _context.prev = 7;
+          case 8:
+            _context.prev = 8;
             _context.t0 = _context["catch"](0);
             console.log("Hello");
+            console.log(res);
             (0, _alerts.showAlerts)('error', _context.t0.response.data.message);
 
-          case 11:
+          case 13:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 7]]);
+    }, _callee, null, [[0, 8]]);
   }));
 
   return function login(_x, _x2) {
@@ -8595,7 +8593,8 @@ exports.login = login;
 
 var logout = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-    var res;
+    var _res2;
+
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
@@ -8608,8 +8607,8 @@ var logout = /*#__PURE__*/function () {
             });
 
           case 3:
-            res = _context2.sent;
-            if (res.data.status === 'success') location.reload(true);
+            _res2 = _context2.sent;
+            if (_res2.data.status === 'success') location.reload(true);
             _context2.next = 10;
             break;
 
