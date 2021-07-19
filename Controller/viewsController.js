@@ -55,7 +55,7 @@ exports.getSignupForm = catchAsync(async (req, res, next) => {
     .status(200)
     .set(
       'Content-Security-Policy',
-      "connect-src 'self' https://cdnjs.cloudflare.com"
+      "connect-src 'self' 'wss:' https://cdnjs.cloudflare.com"
     )
     .render('signup', {
       title: 'Sign Up your Account',

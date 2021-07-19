@@ -13,6 +13,7 @@ export const login = async (email, password) => {
       },
     });
 
+    console.log(res);
     if (res.data.status === 'success') {
       showAlerts('success', 'Logged In succesfully');
       window.setTimeout(() => {
