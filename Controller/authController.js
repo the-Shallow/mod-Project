@@ -14,18 +14,22 @@ const signToken = (id) => {
 
 const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
+  console.log(token);
   const cookieOptions = {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 3600 * 1000
     ),
     httpOnly: true,
-    secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
+    // secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
   };
 
-  // if (process.env.NODE_ENV == 'production') {
-  //   cookieOptions.secure = true;
-  //   console.log("Cookies sent over https");
-  // } 
+  console.log(cookieOptions);
+  if (process.env.NODE_ENV == 'production') {
+    cookieOptions.secure = true;
+    console.log("Cookies sent over https");
+  }
+  
+  console.log(cookieOptions);
 
   res.cookie('jwt', token, cookieOptions);
 

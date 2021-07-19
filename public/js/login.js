@@ -13,14 +13,14 @@ export const login = async (email, password) => {
       },
     });
 
+    if (res.data.status === 'success') {
       showAlerts('success', 'Logged In succesfully');
       window.setTimeout(() => {
         location.assign('/');
       }, 1000);
-
+    }
   } catch (err) {
-    console.log("Hello");
-    console.log(res);
+    console.log("Hello")
     showAlerts('error', err.response.data.message);
   }
 };
