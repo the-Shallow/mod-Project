@@ -25,7 +25,6 @@ const createSendToken = (user, statusCode, res) => {
 
   if (process.env.NODE_ENV == 'production') {
     cookieOptions.secure = true;
-    console.log("Cookies sent over https");
   }
 
   res.cookie('jwt', token, cookieOptions);
@@ -70,7 +69,7 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError('Invalid email or password', 401));
   }
   // 3> if eveything is ohkay send the token back
-  createSendToken(user, 200, {req,res});
+  createSendToken(user, 200, res);
 });
 
 exports.logout = async (req, res) => {

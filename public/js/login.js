@@ -11,10 +11,9 @@ export const login = async (email, password) => {
         email,
         password,
       },
-      headers: { 'Content-Type': 'application/json' },
     });
 
-    if (res.response.data.status === 'success') {
+    if (res.data.status === 'success') {
       showAlerts('success', 'Logged In succesfully');
       window.setTimeout(() => {
         location.assign('/');
