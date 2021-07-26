@@ -14,7 +14,8 @@ const signToken = (id) => {
 
 const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
-  
+  console.log(token);
+
   const cookieOptions = {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 3600 * 1000
@@ -23,7 +24,7 @@ const createSendToken = (user, statusCode, res) => {
     // secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
   };
 
-  if (process.env.NODE_ENV == 'production') {
+  if (process.env.NODE_ENV === 'production') {
     cookieOptions.secure = true;
   }
 
@@ -57,14 +58,14 @@ exports.signup = catchAsync(async (req, res, next) => {
 
 exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
-
+  console.log(email, password);
   // 1>  check email and password exist
   if (!email || !password) {
     return next(new AppError('Please provide eamil or password', 400));
   }
   // 2> check if user exist and password is correct
   const user = await User.findOne({ email: email }).select('+password');
-
+  console.log(user);
   if (!user || !(await user.correctPassword(password, user.password))) {
     return next(new AppError('Invalid email or password', 401));
   }

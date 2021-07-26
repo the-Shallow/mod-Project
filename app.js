@@ -52,6 +52,7 @@ app.use(
           "'self'",
           'blob:',
           'wss:',
+          'ws:',
           'https://*.tiles.mapbox.com',
           'https://api.mapbox.com',
           'https://events.mapbox.com',
