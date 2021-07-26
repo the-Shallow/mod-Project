@@ -30,7 +30,7 @@ app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
-        defaultSrc: ["'self'", 'data:', 'blob:', 'https:', 'ws:','wss:'],
+        defaultSrc: ["'self'", 'data:', 'blob:', 'https:', 'ws:', 'wss:'],
         baseUri: ["'self'"],
         fontSrc: ["'self'", 'https:', 'data:'],
         scriptSrc: [
@@ -55,6 +55,7 @@ app.use(
           'https://*.tiles.mapbox.com',
           'https://api.mapbox.com',
           'https://events.mapbox.com',
+          'https://*.cloudflare.com',
         ],
         upgradeInsecureRequests: [],
       },
