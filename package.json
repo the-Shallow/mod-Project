@@ -11,6 +11,7 @@
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --public-url /js --out-file bundle.js",
     "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --public-url /js --out-file bundle.js"
   },
+  
   "author": "Khush Patel",
   "license": "ISC",
   "dependencies": {
