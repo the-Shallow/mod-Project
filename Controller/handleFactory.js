@@ -78,6 +78,9 @@ exports.getAll = (Model) =>
       .paginate();
 
     const docs = await features.query;
+
+    if (!docs) return next(new AppError('There is no tour with that name',404));
+
     res.status(200).json({
       status: 'success',
       results: docs.length,
