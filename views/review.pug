@@ -1,0 +1,15 @@
+extends base
+
+block content
+    main.main
+        .login-form
+            h2.heading-secondary.ma-bt-lg Add Review
+            form.form.form--review
+                .form__group
+                    label.form__label(for='rating') Rating
+                    input#rating.form__input(type='number', placeholder='4.5',min='1' ,max='5' ,step=".01", required)
+                .form__group.ma-bt-md
+                    label.form__label(for='review') Review
+                    input#review.form__input(type='textarea', placeholder='Type Here', required, minlength='10')
+                .form__group
+                    button.btn.btn--green Submit

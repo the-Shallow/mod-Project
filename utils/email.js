@@ -11,8 +11,16 @@ module.exports = class Email {
   }
 
   newTransport() {
+    console.log(process.env.NODE_ENV.length);
+    console.log(process.env.NODE_ENV == 'production');
     if (process.env.NODE_ENV === 'production') {
-      return 1;
+      return nodemailer.createTransport({
+        service: 'SendGrid',
+        auth: {
+          user: process.env.SENDGRID_USERNAME,
+          pass: process.env.SENDGRID_PASSWORD,
+        },
+      });
     }
 
     return nodemailer.createTransport({
@@ -49,6 +57,9 @@ module.exports = class Email {
   }
 
   async sendPasswordReset() {
-    await this.send('passwordReset', 'Your password reset token valid for 10 min');
+    await this.send(
+      'passwordReset',
+      'Your password reset token valid for 10 min'
+    );
   }
 };

@@ -22,7 +22,7 @@ const createSendToken = (user, statusCode, res) => {
     ),
     httpOnly: true,
     
-    secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
+    // secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
   };
 
   // if (process.env.NODE_ENV === 'production') {
@@ -195,7 +195,7 @@ exports.forgotpassword = catchAsync(async (req, res, next) => {
   // 3) Send it to user's email
   const resetURL = `${req.protocol}://${req.get(
     'host'
-  )}/api/v1/users/resetPassword/${resetToken}`;
+  )}/resetPassword/${resetToken}`;
 
   try {
     

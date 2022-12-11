@@ -60,6 +60,7 @@ block content
       - const parapraphs = tour.description.split('\n');
       each p in parapraphs
         p.description__text= p
+      a.btn.btn--green(href=`/addReview?tourId=${tour.id}`) Add Review
 
   section.section-pictures
     each img, i in tour.images
